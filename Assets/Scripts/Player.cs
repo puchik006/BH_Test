@@ -40,6 +40,11 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     private void TakeScoreCallBack()
     {
+        if (isServer)
+        {
+            return;
+        }
+
         _score++;
         _scoreUpdater.ShowScore(_score);
     }
